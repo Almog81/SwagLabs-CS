@@ -15,7 +15,11 @@ namespace SwagLabs.Tests.SwagLabs.TestCases
         [Test]
         public void Test01()
         {
-           Thread.Sleep(2000);
+            loginPage.txt_username.SendKeys("standard_user");
+			loginPage.txt_password.SendKeys("secret_sauce");
+			loginPage.btn_submit.Click();
+
+			Thread.Sleep(1000);
         }
     }
 }

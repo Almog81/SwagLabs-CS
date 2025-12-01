@@ -26,8 +26,7 @@ namespace SwagLabs.Tests.SwagLabs.Utilities
 			InitBrowser(GetData("Browser"));
 			driver.Manage().Window.Maximize();
 			driver.Navigate().GoToUrl(GetData("URL"));
-			
-
+			ManagePages.InitPages();
 		}
 
 		[OneTimeTearDown]

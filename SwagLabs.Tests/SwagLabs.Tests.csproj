@@ -193,13 +193,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwagLabs\PageObjects\CartPage.cs" />
+    <Compile Include="SwagLabs\PageObjects\HomePage.cs" />
+    <Compile Include="SwagLabs\PageObjects\LoginPage.cs" />
     <Compile Include="SwagLabs\TestCases\Sanity.cs" />
     <Compile Include="SwagLabs\Utilities\Base.cs" />
     <Compile Include="SwagLabs\Utilities\CommonOps.cs" />
+    <Compile Include="SwagLabs\Utilities\ManagePages.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SwagLabs\Extensions\" />
-    <Folder Include="SwagLabs\PageObjects\" />
     <Folder Include="SwagLabs\WorkFlows\" />
   </ItemGroup>
   <ItemGroup>
