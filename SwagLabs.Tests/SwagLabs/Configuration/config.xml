@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+	<Settings>
+		<URL>https://www.saucedemo.com/</URL>
+		<ImplicitWait>5</ImplicitWait>
+	</Settings>
+	<Environment>
+		<Browser>Firefox</Browser>
+
+	</Environment>
+</Configuration>
