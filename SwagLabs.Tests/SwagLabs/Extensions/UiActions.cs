@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using RelevantCodes.ExtentReports;
 using SwagLabs.Tests.SwagLabs.Utilities;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,13 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
             {
                 elem.Click();
                 Console.WriteLine("Click Sucssesfully");
+				test.Log(LogStatus.Pass, "Click Sucssesfully");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Click Failed: " + e.Message);
-            }
+				test.Log(LogStatus.Fail, "Click Failed: " + e.Message);
+			}
             
         }
 		public static void UpdateText(IWebElement elem, string text)
@@ -29,12 +32,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			try
 			{
 				elem.SendKeys(text);
-				Console.WriteLine("Text Update Sucssesfully!");
+				ReportSucsses("Text Update Sucssesfully!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Text Update Failed: " + e.Message);
-				
+				ReportFail("Text Update Failed: " + e.Message);
 			}
 		}
 		public static void SelectDropDown(IWebElement elem, string text)
@@ -43,12 +45,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			{
 				SelectElement dropDown = new SelectElement(elem);
 				dropDown.SelectByText(text);
-				Console.WriteLine("Drop Down Update Sucssesfully!");
+				ReportSucsses("Drop Down Update Sucssesfully!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Drop Down Update Failed: " + e.Message);
-
+				ReportFail("Drop Down Update Failed: " + e.Message);
 			}
 		}
 		public static void SelectDropDown(IWebElement elem, int index)
@@ -57,12 +58,12 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			{
 				SelectElement dropDown = new SelectElement(elem);
 				dropDown.SelectByIndex(index);
-				Console.WriteLine("Drop Down Update Sucssesfully!");
+				ReportSucsses("Drop Down Update Sucssesfully!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Drop Down Update Failed: " + e.Message);
-
+				ReportFail("Drop Down Update Failed: " + e.Message);
+				
 			}
 		}
 		public static int GetListCount(IList<IWebElement> elems)
@@ -70,14 +71,16 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			try
 			{
 				int count = elems.Count();
-				Console.WriteLine("Count Elements Sucssesfully!");
+				ReportSucsses("Count Elements Sucssesfully!");
 				return count;
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Count Elements Failed: " + e.Message);
+				ReportFail("Count Elements Failed: " + e.Message);
 				return 0;
 			}
+			
 		}
+		
 	}
 }

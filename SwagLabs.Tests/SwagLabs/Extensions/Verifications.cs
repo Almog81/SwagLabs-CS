@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using RelevantCodes.ExtentReports;
 using SwagLabs.Tests.SwagLabs.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
             try
             {
 				Assert.That(expected, Is.EqualTo(actual));
-                Console.WriteLine("Verification Passed!");
+				ReportSucsses("Verification Passed!");
 			}
             catch(Exception e) 
             {
-                Console.WriteLine("Verification Failed: " + e.Message);
+				ReportFail("Verification Failed: " + e.Message);
             }  
         }
 		public static void VerifyEquals(string expected, string actual)
@@ -28,11 +29,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			try
 			{
 				Assert.That(expected, Is.EqualTo(actual));
-				Console.WriteLine("Verification Passed!");
+				ReportSucsses("Verification Passed!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Verification Failed: " + e.Message);
+				ReportFail("Verification Failed: " + e.Message);
 			}
 		}
 		public static void VerifyElementText(IWebElement elem, string expected)
@@ -40,11 +41,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			try
 			{
 				Assert.That(elem.Text, Is.EqualTo(expected));
-				Console.WriteLine("Verification Passed!");
+				ReportSucsses("Verification Passed!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Verification Failed: " + e.Message);
+				ReportFail("Verification Failed: " + e.Message);
 			}
 		}
 		public static void VerifyElementDisplayed(IWebElement elem)
@@ -52,11 +53,11 @@ namespace SwagLabs.Tests.SwagLabs.Extensions
 			try
 			{
 				Assert.That(elem.Displayed, Is.True);
-				Console.WriteLine("Verification Passed!");
+				ReportSucsses("Verification Passed!");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Verification Failed: " + e.Message);
+				ReportFail("Verification Failed: " + e.Message);
 			}
 		}
 	}

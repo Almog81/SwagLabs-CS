@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using RelevantCodes.ExtentReports;
+using OpenQA.Selenium;
 using SwagLabs.Tests.SwagLabs.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,20 @@ namespace SwagLabs.Tests.SwagLabs.Utilities
 {
     internal class Base
     {
-        protected static IWebDriver driver;
+		//Paths
+		protected static string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+		protected static string timeStemp = Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy_HH-mm-ss");
+		protected static string reportsPath;
 
-        //Pages
-        public static LoginPage loginPage;
-		public static HomePage homePage;
-		public static CartPage cartPage;
+		protected static IWebDriver driver;
+		protected static ExtentReports extent;
+		protected static ExtentTest test;
+
+
+		//Pages
+		protected static LoginPage loginPage;
+		protected static HomePage homePage;
+		protected static CartPage cartPage;
 
 	}
 }

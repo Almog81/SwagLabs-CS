@@ -13,12 +13,15 @@ namespace SwagLabs.Tests.SwagLabs.TestCases
     [TestFixture]
     internal class Sanity : CommonOps
     {
-        [Test]
-        public void Test01()
+        [Test(Description ="This Test Login Action")]
+        public void Test01_LoginAction()
         {
             UiFlows.LoginAction("standard_user", "secret_sauce");
-
-			Thread.Sleep(1000);
         }
-    }
+		[Test(Description = "This Test Login Action")]
+		public void Test02_LoginAction()
+		{
+			UiFlows.LoginAction("locked_out_user", "secret_sauce");
+		}
+	}
 }

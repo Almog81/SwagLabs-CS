@@ -12,10 +12,19 @@ namespace SwagLabs.Tests.SwagLabs.WorkFlows
 	{
         public static void LoginAction(string username, string password)
         {
-            UiActions.UpdateText(loginPage.txt_username, username);
-			UiActions.UpdateText(loginPage.txt_password, password);
-			UiActions.Click(loginPage.btn_submit);
-			Verifications.VerifyElementDisplayed(homePage.img_logo);
+			try
+			{
+				UiActions.UpdateText(loginPage.txt_username, username);
+				UiActions.UpdateText(loginPage.txt_password, password);
+				UiActions.Click(loginPage.btn_submit);
+				Verifications.VerifyElementDisplayed(homePage.img_logo);
+				ReportSucsses("login Sucsses! username: " + username + ", password: " + password);
 		}
+			catch (Exception e) 
+			{
+				ReportFail("Failed to log in see: " + e.Message);
+	}
+
+}
 	}
 }
